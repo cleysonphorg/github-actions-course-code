@@ -21,4 +21,16 @@ jobs:
 
       - name: Setting an notice message with params
         run: echo "::notice title=Notice title,file=app.js,line=2,endLine=3,col=5,endColumn=7::This is an notice message"
-        
+
+      - name: Grouping logs
+        run: |
+          echo "::group::Some logs"
+          echo "Inside the group"
+          echo "Inside the group"
+          echo "::endgroup::"
+      
+      - name: Masking a value
+        run: echo "::add-mask::secret"
+
+      - name: Echo a value
+        run: echo "secret"
