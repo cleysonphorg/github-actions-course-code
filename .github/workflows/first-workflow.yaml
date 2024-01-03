@@ -14,3 +14,19 @@ jobs:
         run: |
           node -v
           npm -v
+
+  pallarel-job-macos:
+    runs-on: macos-latest
+    steps:
+        - name: View SW Version
+          run: sw_vers
+
+  dependant-job:
+    runs-on: windows-latest
+    needs: run-shell-commands
+    steps:
+      - name: echo a string
+        run: Write-Output "Hello World Windows"
+      
+      - name: Error Step
+        run: does-not-exist
