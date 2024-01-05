@@ -2,6 +2,18 @@ name: Repository Events
 
 on:
   push:
+    branches:
+      - main
+      - "feature/*"
+      - "!devlop"
+    tags:
+      - "v1.*"
+      - "!v1.1.1"
+    paths:
+      - "**.js"
+      - "!app.js"
+    # branches-ignore:
+    #   - devlop
   pull_request:
     types:
       - opened
@@ -11,7 +23,6 @@ on:
   issues:
     types:
       - opened
-
 
 jobs:
   checkout-test:
